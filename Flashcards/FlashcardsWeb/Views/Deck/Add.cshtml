@@ -1,4 +1,4 @@
-﻿@model Flashcards.Models.Deck
+﻿@model Flashcards.Deck
 @{
     ViewBag.Title = "Add";
 }
@@ -8,4 +8,8 @@
 @using (Html.BeginForm())
 {
     @Html.TextBoxFor(x => x.Title, new { placeholder = "Title" })
+    <p>
+      @Html.TextBoxFor(x => x.Cards[0].Sides[0].Text, new { placeholder = "Add Text", @class="row-item" })
+    </p>
+    <input type="submit" />
 }

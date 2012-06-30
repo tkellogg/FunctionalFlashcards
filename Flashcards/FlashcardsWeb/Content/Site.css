@@ -44,6 +44,16 @@ textarea
     margin:0.5em 0 0 0;
 }
 
+form input
+{
+    display: block;
+}
+
+form .row-item
+{
+    display: inline;
+}
+
 
 /* Styles for validation helpers
 -----------------------------------------------------------*/

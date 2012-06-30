@@ -1,9 +1,8 @@
-﻿namespace Flashcards.Controllers
+﻿namespace Flashcards
 
 open System.Web
 open System.Web.Mvc
 open MongoDB.Driver
-open Flashcards.Models
 
 [<HandleError>]
 type HomeController() =
@@ -19,9 +18,6 @@ type DeckController() =
     let db = MongoDatabase.Create "mongodb://localhost/test"
     let collection = db.GetCollection<Deck> ("decks")
 
-    do
-        Setups.SetupMongo()
-
     member this.Index () =
         collection.FindAll () |> List.ofSeq |> this.View
 
@@ -30,5 +26,10 @@ type DeckController() =
 
     [<HttpPostAttribute>]
     member this.Add (deck : Deck) =
+        let side1 = Side()
+        side1.Text <- "this works!!!"
+        let card1 = Card()
+        card1.Sides <- [ side1 ]
+        deck.Cards <- [ card1 ]
         collection.Save deck |> ignore
         this.RedirectToAction "Index"
