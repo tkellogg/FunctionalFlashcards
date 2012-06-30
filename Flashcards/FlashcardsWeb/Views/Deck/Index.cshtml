@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Flashcards.Models.Deck>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Decks</h2>
+
+<ul>
+    @foreach (var deck in Model)
+    {
+        <li>@deck.Title</li>
+    }
+</ul>
+
+@Html.ActionLink("Add", "Add")

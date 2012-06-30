@@ -1,0 +1,11 @@
+﻿@model Flashcards.Models.Deck
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(x => x.Title, new { placeholder = "Title" })
+}
