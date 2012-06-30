@@ -26,10 +26,5 @@ type DeckController() =
 
     [<HttpPostAttribute>]
     member this.Add (deck : Deck) =
-        let side1 = Side()
-        side1.Text <- "this works!!!"
-        let card1 = Card()
-        card1.Sides <- [ side1 ]
-        deck.Cards <- [ card1 ]
         collection.Save deck |> ignore
         this.RedirectToAction "Index"
